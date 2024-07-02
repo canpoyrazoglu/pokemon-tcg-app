@@ -3,7 +3,7 @@ import { FlatList, Pressable, StyleSheet, Text, ViewToken } from "react-native";
 import FastImage from "react-native-fast-image";
 import Card from "../components/Card";
 import { useNavigate } from "../hooks/navigation";
-import { pokemonApi } from "../state/pokemon-api";
+import { pokemonApi } from "../state/pokemonApi";
 import ScreenWrapper from "./ScreenWrapper";
 
 /** Represents the home screen with list of cards. */

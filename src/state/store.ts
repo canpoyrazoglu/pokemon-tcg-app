@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from "redux-persist";
 import { reduxMMKVStorage } from "./mmkv";
-import { pokemonApi } from "./pokemon-api";
+import { pokemonApi } from "./pokemonApi";
+import { savedCards } from "./savedCards";
 
 const persistConfig = {
     key: 'root',
@@ -10,7 +11,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    [pokemonApi.reducerPath]: pokemonApi.reducer
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
+    [savedCards.name]: savedCards.reducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
@@ -26,3 +28,4 @@ export const store = configureStore({
 })
 
 export const persistor = persistStore(store);
+export type StoreState = ReturnType<(typeof store)['getState']>;
