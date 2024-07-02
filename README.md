@@ -56,3 +56,19 @@ Now that you have successfully run the app, let's modify it.
 2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+
+
+# Results
+
+Here are the screen recordings from iOS Simulator and Android emulator:
+
+
+https://github.com/canpoyrazoglu/pokemon-tcg-app/assets/4348413/299058a9-495c-4d35-b2e5-3d13c81364aa
+
+
+https://github.com/canpoyrazoglu/pokemon-tcg-app/assets/4348413/0436665a-9d6d-4b7c-b96d-191fc01694cf
+
+The same assets are also available as video files in the repo, in addition to here.
+
+
+
