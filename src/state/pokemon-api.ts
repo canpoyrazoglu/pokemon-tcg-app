@@ -10,9 +10,8 @@ export const pokemonApi = createApi({
     endpoints: build => ({
         list: build.query<ListResult, number>({
             query: (page: number) => `cards?page=${page}&pageSize=10`,
-            transformResponse: (retval) => {
-                console.log(retval);
-                return retval;
+            serializeQueryArgs: args => {
+                return `cards_page_${Number(args.queryArgs.toString()) ?? 1}`;
             },
             transformErrorResponse: (err) => {
                 console.error(err);

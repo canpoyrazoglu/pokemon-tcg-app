@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Card from "../components/Card";
@@ -11,6 +11,9 @@ export default function HomeScreen(){
     const { useLazyListQuery } = pokemonApi;
 
     const [fetchList, list] = useLazyListQuery();
+
+    // we concatenate all the pages from query result here
+    const [items, setItems] = useState<PokemonCard[]>([]);
 
     const renderItem = ({item}: {item: PokemonCard}) => (
         <Pressable style={styles.listEntry} onPress={() => navigate('cardDetails', {
@@ -25,6 +28,15 @@ export default function HomeScreen(){
         fetchList((list.data?.page ?? 0) + 1);
     }
 
+    useEffect(() => {
+        if(list.data?.data){
+            if(list.data.page == 1){
+                setItems(list.data.data);
+            }else{
+                setItems(existing => [...existing, ...list.data!.data])
+            }
+        }
+    }, [list.data?.page])
     console.log(JSON.stringify(list.data?.data[0]));
 
     // trigger a 'pagination' for first fetch
@@ -33,10 +45,8 @@ export default function HomeScreen(){
     }, []);
 
     return <SafeAreaView style={{ ...StyleSheet.absoluteFillObject}}>
-        <FlatList data={list.data?.data} renderItem={renderItem} style={styles.list} onEndReachedThreshold={0.75}
-                onEndReached={paginate} contentContainerStyle={styles.listContent}>
-
-        </FlatList>
+        <FlatList data={items} renderItem={renderItem} style={styles.list} onEndReachedThreshold={0.65}
+                onEndReached={paginate} contentContainerStyle={styles.listContent} />
     </SafeAreaView>
 }
 
