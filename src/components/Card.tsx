@@ -9,7 +9,7 @@ type CardProps = {
 export default function Card(props: CardProps){
     const isSmall = props.small ?? false;
     return <View style={styles.container}>
-        <FastImage resizeMode="contain" style={isSmall ? styles.smallCard : styles.largeCard} source={{uri: isSmall ? props.card.images.small : props.card.images.large}} />
+        <FastImage  resizeMode="contain" style={isSmall ? styles.smallCard : styles.largeCard} source={{uri: isSmall ? props.card.images.small : props.card.images.large}} />
     </View>
 }
 
@@ -26,11 +26,13 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     largeCard: {
-        backgroundColor: '#EEEEEE',
-        height: 320,
-        width: 240,
-        borderRadius: 10,
-        overflow: 'hidden'
+        height: 328,
+        width: 238,
+        shadowOpacity: 0.3,
+        shadowRadius: 16,
+        shadowColor: 'black',
+        elevation: 20,
+        overflow: 'visible'
 
     }
 })

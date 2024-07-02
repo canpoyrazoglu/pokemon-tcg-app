@@ -18,8 +18,9 @@ export const pokemonApi = createApi({
                 return err;
             }
         }),
-        details: build.query({
-            query: (id: number) => `cards/${id}`
+        details: build.query<PokemonCard, string>({
+            query: (id: string) => `cards/${id}`,
+            transformResponse: (retVal: any) => retVal.data
         })
     })
 })
