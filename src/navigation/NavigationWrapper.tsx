@@ -6,7 +6,7 @@ import { RouteParamMap } from "../types/navigation";
 
 const Stack = createNativeStackNavigator<RouteParamMap>();
 
-
+/** Wraps app navigation with the possible navigatable screens and their options. */
 export default function NavigationWrapper(){
     return <NavigationContainer<RouteParamMap>>
         <Stack.Navigator initialRouteName="home">

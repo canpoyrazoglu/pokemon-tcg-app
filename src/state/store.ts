@@ -10,6 +10,7 @@ const persistConfig = {
     storage: reduxMMKVStorage
 }
 
+// our "root" reducer contains both the API we've defined with RTK queries, as well as our saved cards slice.
 const rootReducer = combineReducers({
     [pokemonApi.reducerPath]: pokemonApi.reducer,
     [savedCards.name]: savedCards.reducer,

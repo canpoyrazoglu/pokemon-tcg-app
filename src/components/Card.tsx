@@ -6,6 +6,7 @@ type CardProps = {
     small?: boolean;
 }
 
+/** Displays a Pokemon card's actual image. */
 export default function Card(props: CardProps){
     const isSmall = props.small ?? false;
     return <View style={styles.container}>

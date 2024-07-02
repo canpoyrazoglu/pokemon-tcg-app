@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 type PillProps = {
     children?: string
 }
+
+/** A small "pill" item that can display a tag text. */
 export default function Pill(props: PillProps){
     if(!props.children?.length){
         return null;

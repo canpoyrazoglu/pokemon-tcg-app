@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import {
     ActivityIndicator
@@ -15,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import NavigationWrapper from './src/navigation/NavigationWrapper';
 import { persistor, store } from './src/state/store';
 
+/** Entry point of our app. */
 function App() {
   return (
     <Provider store={store}>
@@ -23,7 +17,6 @@ function App() {
                 <NavigationWrapper />
             </SafeAreaProvider>
         </PersistGate>
-       
     </Provider>
   );
 }

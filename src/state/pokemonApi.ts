@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ListResult } from "../types/api";
 
+/** Contains functions for interfacing with the Pokemon Trading Cards API */
 export const pokemonApi = createApi({
     reducerPath: 'pokemonApi',
     baseQuery: fetchBaseQuery({

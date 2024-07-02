@@ -15,6 +15,7 @@ const initialState: SavedCardsState = {
     savedIds: []
 }
 
+/** State representing data and functions for saved cards. */
 export const savedCards = createSlice({
     name: 'savedCards',
     initialState,

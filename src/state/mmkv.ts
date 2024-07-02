@@ -1,6 +1,8 @@
 import { MMKV } from 'react-native-mmkv';
 import { Storage } from 'redux-persist';
 
+// MMKV faster than other persist storage options.
+
 const storage = new MMKV();
 
 export const reduxMMKVStorage: Storage = {

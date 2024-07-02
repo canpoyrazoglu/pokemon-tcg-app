@@ -1,5 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
+/** Represents the possible screens with any route parameters for strongly typed access. */
 export type RouteParamMap = {
     home: undefined,
     cardDetails: {
