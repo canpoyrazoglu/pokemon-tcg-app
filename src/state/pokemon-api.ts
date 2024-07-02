@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { ListResult } from "../types/api";
 
 export const pokemonApi = createApi({
     reducerPath: 'pokemonApi',
@@ -7,8 +8,16 @@ export const pokemonApi = createApi({
 
     }),
     endpoints: build => ({
-        list: build.query<any,any>({
-            query: () => 'cards'
+        list: build.query<ListResult, number>({
+            query: (page: number) => `cards?page=${page}&pageSize=10`,
+            transformResponse: (retval) => {
+                console.log(retval);
+                return retval;
+            },
+            transformErrorResponse: (err) => {
+                console.error(err);
+                return err;
+            }
         }),
         details: build.query({
             query: (id: number) => `cards/${id}`

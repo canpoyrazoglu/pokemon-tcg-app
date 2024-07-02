@@ -1,6 +1,6 @@
 export type RouteParamMap = {
     home: undefined,
     cardDetails: {
-        cardId: number
+        card: PokemonCard
     }
 }

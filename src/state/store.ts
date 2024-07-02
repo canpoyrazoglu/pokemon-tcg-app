@@ -19,7 +19,9 @@ export const store = configureStore({
         getDefaultMiddleware({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+                warnAfter: 256,
             },
+            immutableCheck: { warnAfter: 256 },
         }).concat(pokemonApi.middleware),
 })
 

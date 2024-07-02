@@ -7,10 +7,9 @@
 
 import React from 'react';
 import {
-    ActivityIndicator,
-    SafeAreaView,
-    StyleSheet
+    ActivityIndicator
 } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import NavigationWrapper from './src/navigation/NavigationWrapper';
@@ -20,19 +19,13 @@ function App() {
   return (
     <Provider store={store}>
         <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
-            <SafeAreaView style={styles.safeAreaContainer}>
+            <SafeAreaProvider>
                 <NavigationWrapper />
-            </SafeAreaView>
+            </SafeAreaProvider>
         </PersistGate>
        
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-    safeAreaContainer: {
-        flex: 1
-    }
-})
 
 export default App;
