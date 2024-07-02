@@ -9,22 +9,28 @@ type CardProps = {
 export default function Card(props: CardProps){
     const isSmall = props.small ?? false;
     return <View style={styles.container}>
-        <FastImage resizeMode="contain" style={isSmall ? styles.smallCard : styles.largeCard} source={{uri: props.card.images.small}} />
+        <FastImage resizeMode="contain" style={isSmall ? styles.smallCard : styles.largeCard} source={{uri: isSmall ? props.card.images.small : props.card.images.large}} />
     </View>
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'gray',
         alignItems: 'center',
         justifyContent: 'center'
     },
     smallCard: {
+        backgroundColor: '#EEEEEE',
         height: 80,
-        width: 57
+        width: 57,
+        borderRadius: 8,
+        overflow: 'hidden'
     },
     largeCard: {
-        height: 220,
-        width: 100
+        backgroundColor: '#EEEEEE',
+        height: 320,
+        width: 240,
+        borderRadius: 10,
+        overflow: 'hidden'
+
     }
 })

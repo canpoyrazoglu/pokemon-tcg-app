@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Card from "../components/Card";
 import { useNavigate } from "../hooks/navigation";
 import { pokemonApi } from "../state/pokemon-api";
+import ScreenWrapper from "./ScreenWrapper";
 
 
 export default function HomeScreen(){
@@ -37,25 +37,25 @@ export default function HomeScreen(){
             }
         }
     }, [list.data?.page])
-    console.log(JSON.stringify(list.data?.data[0]));
 
     // trigger a 'pagination' for first fetch
     useEffect(() => {
         paginate();
     }, []);
 
-    return <SafeAreaView style={{ ...StyleSheet.absoluteFillObject}}>
+    return <ScreenWrapper>
         <FlatList data={items} renderItem={renderItem} style={styles.list} onEndReachedThreshold={0.65}
                 onEndReached={paginate} contentContainerStyle={styles.listContent} />
-    </SafeAreaView>
+    </ScreenWrapper>
 }
 
 const styles = StyleSheet.create({
     list: {
-        flex: 1
+        flex: 1,
+        backgroundColor:'red'
     },
     listContent: {
-        paddingVertical: 40,
+        paddingVertical: 10,
     },
     listEntry: {
         height: 100, 

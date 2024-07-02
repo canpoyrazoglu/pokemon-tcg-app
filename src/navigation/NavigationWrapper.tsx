@@ -13,7 +13,9 @@ export default function NavigationWrapper(){
             <Stack.Screen name="home" component={HomeScreen} options={{
                 title: 'Pokémon Cards'
             }} />
-            <Stack.Screen name="cardDetails" component={CardDetailsScreen} />
+            <Stack.Screen name="cardDetails" component={CardDetailsScreen} options={props => ({
+                title: props.route.params.card.name
+            })} />
         </Stack.Navigator>
     </NavigationContainer>
 }
